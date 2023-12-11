@@ -37,7 +37,7 @@ FOREIGN KEY (planeID) REFERENCES plane(planeID));*/
 DROP TABLE IF EXISTS `flights`;
 CREATE TABLE flights(FID varchar(20) PRIMARY KEY, OperationDays varchar(100), 
 arrivalTime date, departureTime date, planeType varchar(50), DomesticFlight boolean, InteralFlight boolean, 
-depid char(3), destid char(3), departPlane varchar(20), destPlane varchar(20));
+dep_airport char(3), arr_airport char(3), dep_Plane varchar(20));
 /*FOREIGN KEY (depid) REFERENCES Airport(AirportID),
 FOREIGN KEY (destid) REFERENCES Airport(AirportID),
 FOREIGN KEY (departPlane) REFERENCES Plane(planeID),
