@@ -18,15 +18,15 @@
 	Connection con = db.getConnection();
 	Statement stmt = con.createStatement();
     ResultSet rs1;
-    rs1 = stmt.executeQuery("select * from admin where adminuser='" + userid + "'");
+    rs1 = stmt.executeQuery("select * from admin where ID='" + userid + "'");
     if (rs1.next()){
     	 ResultSet rs2;
-    	    rs2 = stmt.executeQuery("select * from admin where adminuser='" + userid + "' and adminpass='" + pass + "'");
+    	    rs2 = stmt.executeQuery("select * from admin where ID='" + userid + "' and password='" + pass + "'");
     	    if (rs2.next()) {
     	    	session.setAttribute("user", userid); // the username will be stored in the session
-    	        response.sendRedirect("AdminSuccess.jsp");
+    	        response.sendRedirect("ALoginPass.jsp");
     	    } else {
-    	        out.println("Invalid password <a href='AdminLogin.jsp'>try again</a>");
+    	        out.println("Invalid password <a href='ALogin.jsp'>try again</a>");
     	    }
     }
     else{
