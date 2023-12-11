@@ -13,7 +13,7 @@
 	
 	<body>
 		Login:
-		<br><form method="get" action="NewALogin.jsp">
+		<br><form method="get" action="ALogin.jsp">
 			<table>
 				<tr>    
 					<td>User ID</td><td><input type="text" name="id"></td>
