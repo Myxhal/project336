@@ -35,9 +35,9 @@ FOREIGN KEY (airline) REFERENCES airline(airlineID),
 FOREIGN KEY (planeID) REFERENCES plane(planeID));*/
 
 DROP TABLE IF EXISTS `flights`;
-CREATE TABLE flights(FID varchar(20) PRIMARY KEY, OperationDays varchar(100), 
-arrivalTime date, departureTime date, planeType varchar(50), DomesticFlight boolean, InteralFlight boolean, 
-dep_airport char(3), arr_airport char(3), dep_Plane varchar(20));
+CREATE TABLE flights(FID varchar(20) PRIMARY KEY, airline char(2), planeid varchar(30),
+dep_airport char(3), dep_date date, dep_time time, arr_airport char(3), arr_date date, arr_time time, 
+f_type varchar(20), stops int, eco_price float, bus_price float, first_price float, seats int, Domestic varchar(20));
 /*FOREIGN KEY (depid) REFERENCES Airport(AirportID),
 FOREIGN KEY (destid) REFERENCES Airport(AirportID),
 FOREIGN KEY (departPlane) REFERENCES Plane(planeID),
@@ -69,8 +69,14 @@ values('1003', 'part3');
 insert into replies(id, question, repid, reply)
 values('1001', 'Hi how are you?', 'repdeez', "Terrible");
 
+select * from replies WHERE reply LIKE '%ter%';
+
 insert into ticket(tid, cid, airline, planeid, dep_airport, dep_date, dep_time, arr_airport, purchase_date, class, fare)
 values('1234', '1001', 'UD', 'nxb7ef', 'LAX', '2023-12-29', '2:00:00', 'EWR', '2023-11-23', 'First Class', 315);
 
-select * from replies;
+insert into admin(id, password)
+values ('admin1', 'adminpass');
+
+select * from admin;
 select * from ticket;
+select * from flights;
