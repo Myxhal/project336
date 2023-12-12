@@ -22,7 +22,7 @@
 	String airlineid = request.getParameter("airline_id");
    	String aircraftid = request.getParameter("aircraft_id");
 
-	rs1 = stmt.executeQuery("select * from tickets where airline_id= '"+airlineid+"' and aircraft_id= '"+aircraftid+"' ");
+	rs1 = stmt.executeQuery("select * from ticket where airline= '"+airlineid+"' and planeID= '"+aircraftid+"' ");
 
 
 	while(rs1.next()){
