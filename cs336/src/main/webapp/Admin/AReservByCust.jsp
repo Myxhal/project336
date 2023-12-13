@@ -32,3 +32,8 @@ while(rs1.next()){
 			out.println(rs1.getString(8));
 			out.println(rs1.getString(9));
 			out.println(rs1.getString(10));
+	%>
+	<br>
+	<%} %>
+</body>
+</html>
