@@ -123,7 +123,7 @@ INSERT INTO waitingList (ID, airline, planeid, dep_date) VALUES ('user3', 'DL', 
 
 
 
-/*
+
 insert into airline(airlineID)
 values('SW');
 insert into airline(airlineID)
