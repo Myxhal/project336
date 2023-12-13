@@ -103,6 +103,51 @@ You are not logged in<br/>
 	</form>
 </form>
 
+<form action="ACreateAccount.jsp" method="POST">
+	Add New Customer:
+	<br><input type="text" name="userid" placeholder="Enter New Customer Username">
+	<br><input type="text" name="password" placeholder="Enter New Customer Password">
+
+	<form action="ACreateAccount.jsp">
+		<input type="submit" value="Retrieve">
+	</form>
+</form>
+
+<form action="EDIT.jsp" method="POST">
+	Delete Customer:
+	<br><input type="text" name="userid" placeholder="Enter Customer Username">
+
+	<form action="EDIT.jsp">
+		<input type="submit" value="Retrieve">
+	</form>
+</form>
+
+
+
+
+
+
+
+
+<form action="ACreateCRAccount.jsp" method="POST">
+	Add New Customer Representative:
+	<br><input type="text" name="userid" placeholder="Enter Customer Representative Username">
+    <br><input type="text" name="userid" placeholder="Enter Customer Representative Password">
+	<form action="ACreateCRAccount.jsp">
+		<input type="submit" value="Retrieve">
+	</form>
+</form>
+
+
+<form action="EDIT.jsp" method="POST">
+	Delete Customer Representative:
+	<br><input type="text" name="userid" placeholder="Enter Customer Username">
+
+	<form action="ARevByCustomer.jsp">
+		<input type="submit" value="Retrieve">
+	</form>
+</form>
+
 
 <%
     }
