@@ -60,6 +60,94 @@ DROP TABLE IF EXISTS `waitingList`;
 CREATE TABLE waitingList(ID varchar(10), airline char(2), planeid varchar(30), dep_date date,
 PRIMARY KEY (ID, airline, planeid, dep_date));
 
+-- Sample data for airline table
+INSERT INTO airline (airlineID) VALUES ('AA');
+INSERT INTO airline (airlineID) VALUES ('UA');
+INSERT INTO airline (airlineID) VALUES ('DL');
+
+-- Sample data for Plane table
+INSERT INTO Plane (planeID, seats, airlineID) VALUES ('PL001', 150, 'AA');
+INSERT INTO Plane (planeID, seats, airlineID) VALUES ('PL002', 200, 'UA');
+INSERT INTO Plane (planeID, seats, airlineID) VALUES ('PL003', 180, 'DL');
+
+-- Sample data for airport table
+INSERT INTO airport (AirportID) VALUES ('JFK');
+INSERT INTO airport (AirportID) VALUES ('LAX');
+INSERT INTO airport (AirportID) VALUES ('ORD');
+
+-- Sample data for customerRep table
+INSERT INTO customerRep (ID, password) VALUES ('rep1', 'password1');
+INSERT INTO customerRep (ID, password) VALUES ('rep2', 'password2');
+INSERT INTO customerRep (ID, password) VALUES ('rep3', 'password3');
+
+-- Sample data for admin table
+INSERT INTO admin (ID, password) VALUES ('admin1', 'adminpass1');
+INSERT INTO admin (ID, password) VALUES ('admin2', 'adminpass2');
+INSERT INTO admin (ID, password) VALUES ('admin3', 'adminpass3');
+
+-- Sample data for customer table
+INSERT INTO customer (ID, password) VALUES ('user1', 'userpass1');
+INSERT INTO customer (ID, password) VALUES ('user2', 'userpass2');
+INSERT INTO customer (ID, password) VALUES ('user3', 'userpass3');
+
+-- Sample data for ticket table
+INSERT INTO ticket (tid, cid, airline, planeID, dep_airport, dep_date, dep_time, arr_airport, purchase_date, class, fare)
+VALUES
+    ('T001', 'user1', 'AA', 'PL001', 'JFK', '2023-01-01', '12:00:00', 'LAX', '2023-01-01', 'Economy', '100.00'),
+    ('T002', 'user2', 'UA', 'PL002', 'LAX', '2023-02-01', '14:00:00', 'ORD', '2023-02-01', 'Business', '200.00'),
+    ('T003', 'user3', 'DL', 'PL003', 'ORD', '2023-03-01', '10:00:00', 'JFK', '2023-03-01', 'First Class', '300.00');
+
+-- Sample data for flights table
+INSERT INTO flights (FID, airline, planeid, dep_airport, dep_date, dep_time, arr_airport, arr_date, arr_time, f_type, stops, eco_price, bus_price, first_price, seats, Domestic)
+VALUES
+    ('F001', 'AA', 'PL001', 'JFK', '2023-01-01', '12:00:00', 'LAX', '2023-01-01', '15:00:00', 'Direct', 0, 150, 300, 500, 150, 'Yes'),
+    ('F002', 'UA', 'PL002', 'LAX', '2023-02-01', '14:00:00', 'ORD', '2023-02-01', '17:00:00', 'Direct', 0, 200, 400, 600, 200, 'No'),
+    ('F003', 'DL', 'PL003', 'ORD', '2023-03-01', '10:00:00', 'JFK', '2023-03-01', '13:00:00', 'Direct', 0, 250, 450, 700, 180, 'Yes');
+
+-- Sample data for questions table
+INSERT INTO questions (cID, question) VALUES ('user1', 'How can I change my seat?');
+INSERT INTO questions (cID, question) VALUES ('user2', 'What is the baggage policy?');
+INSERT INTO questions (cID, question) VALUES ('user3', 'Can I bring my pet on board?');
+
+-- Sample data for replies table
+INSERT INTO replies (ID, question, repID, reply) VALUES ('user1', 'How can I change my seat?', 'rep1', 'You can change your seat by...');
+INSERT INTO replies (ID, question, repID, reply) VALUES ('user2', 'What is the baggage policy?', 'rep2', 'The baggage policy allows...');
+INSERT INTO replies (ID, question, repID, reply) VALUES ('user3', 'Can I bring my pet on board?', 'rep3', 'Yes, you can bring your pet under certain conditions.');
+
+-- Sample data for waitingList table
+INSERT INTO waitingList (ID, airline, planeid, dep_date) VALUES ('user1', 'AA', 'PL001', '2023-02-01');
+INSERT INTO waitingList (ID, airline, planeid, dep_date) VALUES ('user2', 'UA', 'PL002', '2023-03-01');
+INSERT INTO waitingList (ID, airline, planeid, dep_date) VALUES ('user3', 'DL', 'PL003', '2023-04-01');
+
+
+
+
+
+/*
+insert into airline(airlineID)
+values('SW');
+insert into airline(airlineID)
+values('UA');
+insert into airline(airlineID)
+values('JB');
+
+
+insert into Plane(planeID, seats, )
+
+Plane(planeID varchar(20), seats int, airlineID char(2),
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 insert into customer(ID, password) 
 values('1001', 'password');
@@ -69,6 +157,7 @@ values('1002', 'finalproject');
 
 insert into customer(ID, password)
 values('1003', 'part3');
+
 
 insert into replies(id, question, repid, reply)
 values('1001', 'Hi how are you?', 'repdeez', "Terrible");
@@ -89,4 +178,4 @@ insert into flights(fid, airline, planeid, dep_airport, dep_date, dep_time, arr_
 eco_price, bus_price, first_price, seats, domestic)
 values('8b472', 'UD', 'fh873', 'PHL', '2023-12-30', '11:30:00', 'TPA', '2023-12-30', '14:15:00', 
 'One Way', 0, 150, 350, 500, 20, 'Domestic');
-select * from flights;
+select * from flights; */
