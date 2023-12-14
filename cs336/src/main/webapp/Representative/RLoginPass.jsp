@@ -6,9 +6,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Representative Landing Page</title>
 </head>
+Welcome back 
 <body>
 Welcome <%=session.getAttribute("user") %>
 <br>***ONLY PICK ONE OPTION AT A TIME***<br>
+
+<p style="float: right;"><a href="AllFlights.jsp">View All Flights</a></p>
+<br>
+<input type="text" name="dep-air" placeholder="Airport"> 
+
+
+
+
+
 <p style="float: right;"><a href="ALogout.jsp">Log out</a></p>
 <br>
 

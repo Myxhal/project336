@@ -139,11 +139,11 @@ You are not logged in<br/>
 </form>
 
 
-<form action="EDIT.jsp" method="POST">
+<form action="ADeleteCust.jsp" method="POST">
 	Delete Customer Representative:
-	<br><input type="text" name="userid" placeholder="Enter Customer Username">
+	<br><input type="text" name="userid" placeholder="Enter Customer Representative Username">
 
-	<form action="ARevByCustomer.jsp">
+	<form action="ADeleteCust.jsp">
 		<input type="submit" value="Retrieve">
 	</form>
 </form>
