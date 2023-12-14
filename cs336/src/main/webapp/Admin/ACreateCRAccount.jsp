@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Create New Customer Account</title>
+<title>Create New Customer Representative Account</title>
 </head>
 <body>
 <form action="ALoginNewCRAccount.jsp" method="POST">

@@ -24,13 +24,13 @@
 			String pw = request.getParameter("password");
 			
 			//Make a SELECT query from the sells table with the price range specified by the 'price' parameter at the index.jsp
-			String str = "SELECT * FROM represntative where id = " + id;
+			String str = "SELECT * FROM customerRep where id = " + id;
 			
     
     ResultSet result = stmt.executeQuery(str);
     if (result.next()){
     	 ResultSet result2;
-    	    result2 = stmt.executeQuery("select * from represntative where id='" + id + "' and password='" + pw + "'");
+    	    result2 = stmt.executeQuery("select * from customerRep where id='" + id + "' and password='" + pw + "'");
     	    if (result2.next()) {
     	    	session.setAttribute("user", id); // the username will be stored in the session
     	        response.sendRedirect("RLoginPass.jsp");
