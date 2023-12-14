@@ -121,7 +121,14 @@ INSERT INTO flights (FID, airline, planeid, dep_airport, dep_date, dep_time, arr
 VALUES
     ('F001', 'AA', 'PL001', 'JFK', '2023-01-01', '12:00:00', 'LAX', '2023-01-01', '15:00:00', 'One Way', 0, 150, 300, 500, 150, 'Domestic'),
     ('F002', 'UA', 'PL002', 'LAX', '2023-02-01', '14:00:00', 'ICN', '2023-02-01', '22:00:00', 'Round Trip', 0, 1200, 1400, 1600, 200, 'International'),
-    ('F003', 'DL', 'PL003', 'ORD', '2023-03-01', '10:00:00', 'JFK', '2023-03-01', '13:00:00', 'Round Trip', 0, 250, 450, 700, 180, 'Domestic');
+    ('F003', 'DL', 'PL003', 'ORD', '2023-03-01', '10:00:00', 'JFK', '2023-03-01', '13:00:00', 'Round Trip', 0, 250, 450, 700, 180, 'Domestic'),
+    ('F004', 'AA', 'PL001', 'JFK', '2023-04-01', '08:00:00', 'LAX', '2023-04-01', '11:00:00', 'Direct', 0, 180, 350, 550, 170, 'International'),
+    ('F005', 'UA', 'PL002', 'LAX', '2023-05-01', '16:00:00', 'ORD', '2023-05-01', '19:00:00', 'Direct', 0, 220, 420, 650, 190, 'Domestic'),
+    ('F006', 'DL', 'PL003', 'ORD', '2023-06-01', '11:00:00', 'JFK', '2023-06-01', '14:00:00', 'Direct', 0, 260, 480, 720, 200, 'International'),
+    ('F007', 'AA', 'PL001', 'JFK', '2023-07-01', '14:00:00', 'LAX', '2023-07-01', '17:00:00', 'Direct', 0, 200, 380, 600, 180, 'Domestic'),
+    ('F008', 'UA', 'PL002', 'LAX', '2023-08-01', '18:00:00', 'ORD', '2023-08-01', '21:00:00', 'Direct', 0, 240, 450, 680, 210, 'International');
+
+
 
 -- Sample data for questions table
 INSERT INTO questions (cID, question) VALUES ('user1', 'How can I change my seat?');
