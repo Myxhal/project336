@@ -36,13 +36,11 @@ dep_airport char(3), dep_date date, dep_time time, arr_airport char(3), arr_date
 f_type varchar(20), stops int, eco_price int, bus_price int, first_price int, seats int, Domestic varchar(20));
 
 DROP TABLE IF EXISTS `questions`;
-CREATE TABLE questions(cID varchar(10), question varchar(100),
-PRIMARY KEY(cID, question));
+CREATE TABLE questions(cID varchar(10), question varchar(900));
 
 DROP TABLE IF EXISTS `replies`;
-CREATE TABLE replies(ID varchar(10), question varchar(100), 
-repID varchar(10), reply varchar(100),
-PRIMARY KEY (ID, question, reply));
+CREATE TABLE replies(ID varchar(10), question varchar(900), 
+repID varchar(10), reply varchar(900));
 
 DROP TABLE IF EXISTS `waitingList`;
 CREATE TABLE waitingList(ID varchar(10), airline char(2), planeid varchar(30), dep_date date,
@@ -52,57 +50,39 @@ PRIMARY KEY (ID, airline, planeid, dep_date));
 insert into customer(ID, password) 
 values('1001', 'password');
 
-insert into customer(ID, password)
-values('1002', 'finalproject');
-
-insert into customer(ID, password)
-values('1003', 'part3');
-
-insert into replies(id, question, repid, reply)
-values('1001', 'Hi how are you?', 'repdeez', "Terrible");
-
-select * from replies WHERE reply LIKE '%ter%';
-
-insert into ticket(tid, cid, airline, planeid, dep_airport, dep_date, dep_time, arr_airport, purchase_date, class, fare)
-values('1234', '1001', 'UD', 'nxb7ef', 'LAX', '2023-12-29', '2:00:00', 'EWR', '2023-11-23', 'First Class', 315);
-
 insert into admin(id, password)
 values ('admin1', 'adminpass');
-
-select * from admin;
-select * from ticket;
-select * from flights;
-
-insert into flights(fid, airline, planeid, dep_airport, dep_date, dep_time, arr_airport, arr_date, arr_time, f_type, stops,
-eco_price, bus_price, first_price, seats, domestic)
-values('8b472', 'UD', 'fh873', 'PHL', '2023-12-30', '11:30:00', 'TPA', '2023-12-30', '14:15:00', 
-'One Way', 0, 150, 350, 500, 20, 'Domestic');
-select * from flights;
 
 -- Sample data for airline table
 INSERT INTO airline (airlineID) VALUES ('AA');
 INSERT INTO airline (airlineID) VALUES ('UA');
-INSERT INTO airline (airlineID) VALUES ('DL');
+INSERT INTO airline (airlineID) VALUES ('SW');
 
 -- Sample data for Plane table
-INSERT INTO Plane (planeID, seats, airlineID) VALUES ('PL001', 150, 'AA');
-INSERT INTO Plane (planeID, seats, airlineID) VALUES ('PL002', 200, 'UA');
-INSERT INTO Plane (planeID, seats, airlineID) VALUES ('PL003', 180, 'DL');
+INSERT INTO Plane (planeID, seats, airlineID) VALUES ('eb321', 150, 'AA');
+INSERT INTO Plane (planeID, seats, airlineID) VALUES ('hv890', 200, 'UA');
+INSERT INTO Plane (planeID, seats, airlineID) VALUES ('pv734', 180, 'SW');
+INSERT INTO Plane (planeID, seats, airlineID) VALUES ('lh894', 170, 'AA');
+INSERT INTO Plane (planeID, seats, airlineID) VALUES ('tv882', 190, 'UA');
+INSERT INTO Plane (planeID, seats, airlineID) VALUES ('ml194', 200, 'SW');
+INSERT INTO Plane (planeID, seats, airlineID) VALUES ('ph647', 180, 'AA');
+INSERT INTO Plane (planeID, seats, airlineID) VALUES ('zc836', 210, 'UA');
+INSERT INTO Plane (planeID, seats, airlineID) VALUES ('fh873', 200, 'UA');
 
 -- Sample data for airport table
 INSERT INTO airport (AirportID) VALUES ('JFK');
 INSERT INTO airport (AirportID) VALUES ('LAX');
 INSERT INTO airport (AirportID) VALUES ('ORD');
+INSERT INTO airport (AirportID) VALUES ('TPA');
+INSERT INTO airport (AirportID) VALUES ('PHL');
+INSERT INTO airport (AirportID) VALUES ('MCO');
+INSERT INTO airport (AirportID) VALUES ('LHR');
+INSERT INTO airport (AirportID) VALUES ('ICN');
 
 -- Sample data for customerRep table
 INSERT INTO customerRep (ID, password) VALUES ('rep1', 'password1');
 INSERT INTO customerRep (ID, password) VALUES ('rep2', 'password2');
 INSERT INTO customerRep (ID, password) VALUES ('rep3', 'password3');
-
--- Sample data for admin table
-INSERT INTO admin (ID, password) VALUES ('admin1', 'adminpass1');
-INSERT INTO admin (ID, password) VALUES ('admin2', 'adminpass2');
-INSERT INTO admin (ID, password) VALUES ('admin3', 'adminpass3');
 
 -- Sample data for customer table
 INSERT INTO customer (ID, password) VALUES ('user1', 'userpass1');
@@ -112,33 +92,34 @@ INSERT INTO customer (ID, password) VALUES ('user3', 'userpass3');
 -- Sample data for ticket table
 INSERT INTO ticket (tid, cid, airline, planeID, dep_airport, dep_date, dep_time, arr_airport, purchase_date, class, fare)
 VALUES
-    ('T001', 'user1', 'AA', 'PL001', 'JFK', '2023-01-01', '12:00:00', 'LAX', '2023-01-01', 'Economy', '100.00'),
-    ('T002', 'user2', 'UA', 'PL002', 'LAX', '2023-02-01', '22:00:00', 'ICN', '2023-02-01', 'Business', '1200.00'),
-    ('T003', 'user3', 'DL', 'PL003', 'ORD', '2023-03-01', '10:00:00', 'JFK', '2023-03-01', 'First Class', '300.00');
-
--- Sample data for flights table
-INSERT INTO flights (FID, airline, planeid, dep_airport, dep_date, dep_time, arr_airport, arr_date, arr_time, f_type, stops, eco_price, bus_price, first_price, seats, Domestic)
-VALUES
-    ('F001', 'AA', 'PL001', 'JFK', '2023-01-01', '12:00:00', 'LAX', '2023-01-01', '15:00:00', 'One Way', 0, 150, 300, 500, 150, 'Domestic'),
-    ('F002', 'UA', 'PL002', 'LAX', '2023-02-01', '14:00:00', 'ICN', '2023-02-01', '22:00:00', 'Round Trip', 0, 1200, 1400, 1600, 200, 'International'),
-    ('F003', 'DL', 'PL003', 'ORD', '2023-03-01', '10:00:00', 'JFK', '2023-03-01', '13:00:00', 'Round Trip', 0, 250, 450, 700, 180, 'Domestic'),
-    ('F004', 'AA', 'PL001', 'JFK', '2023-04-01', '08:00:00', 'LAX', '2023-04-01', '11:00:00', 'Direct', 0, 180, 350, 550, 170, 'International'),
-    ('F005', 'UA', 'PL002', 'LAX', '2023-05-01', '16:00:00', 'ORD', '2023-05-01', '19:00:00', 'Direct', 0, 220, 420, 650, 190, 'Domestic'),
-    ('F006', 'DL', 'PL003', 'ORD', '2023-06-01', '11:00:00', 'JFK', '2023-06-01', '14:00:00', 'Direct', 0, 260, 480, 720, 200, 'International'),
-    ('F007', 'AA', 'PL001', 'JFK', '2023-07-01', '14:00:00', 'LAX', '2023-07-01', '17:00:00', 'Direct', 0, 200, 380, 600, 180, 'Domestic'),
-    ('F008', 'UA', 'PL002', 'LAX', '2023-08-01', '18:00:00', 'ORD', '2023-08-01', '21:00:00', 'Direct', 0, 240, 450, 680, 210, 'International');
-
-
+    ('eb321user1', 'user1', 'AA', 'eb321', 'JFK', '2023-01-01', '12:00:00', 'LAX', '2023-01-01', 'Economy Class', '300.00'),
+    ('hv890user2', 'user2', 'UA', 'hv890', 'LAX', '2023-02-01', '22:00:00', 'ICN', '2023-02-11', 'Business Class', '1550.00'),
+    ('pv734user3', 'user3', 'SW', 'pv734', 'ORD', '2023-03-01', '10:00:00', 'JFK', '2023-03-07', 'First Class', '850.00');
 
 -- Sample data for questions table
 INSERT INTO questions (cID, question) VALUES ('user1', 'How can I change my seat?');
 INSERT INTO questions (cID, question) VALUES ('user2', 'What is the baggage policy?');
-INSERT INTO questions (cID, question) VALUES ('user3', 'Can I bring my pet on board?');
 
 -- Sample data for replies table
-INSERT INTO replies (ID, question, repID, reply) VALUES ('user1', 'How can I change my seat?', 'rep1', 'You can change your seat by...');
-INSERT INTO replies (ID, question, repID, reply) VALUES ('user2', 'What is the baggage policy?', 'rep2', 'The baggage policy allows...');
-INSERT INTO replies (ID, question, repID, reply) VALUES ('user3', 'Can I bring my pet on board?', 'rep3', 'Yes, you can bring your pet under certain conditions.');
+INSERT INTO replies (ID, question, repID, reply) VALUES ('user3', 'Can I bring my pet on board?', 'rep3', 'Only service animals are allowed.');
+
+-- Sample data for waitingList table
+INSERT INTO waitingList (ID, airline, planeid, dep_date) VALUES ('user1', 'UA', 'tv882', '2023-05-01');
+INSERT INTO waitingList (ID, airline, planeid, dep_date) VALUES ('user2', 'UA', 'zc836', '2023-07-01');
+INSERT INTO waitingList (ID, airline, planeid, dep_date) VALUES ('user3', 'AA', 'ph647', '2023-08-01');
+
+INSERT INTO flights (FID, airline, planeid, dep_airport, dep_date, dep_time, arr_airport, arr_date, arr_time, f_type, stops, eco_price, bus_price, first_price, seats, Domestic)
+VALUES
+	('F009', 'UA', 'fh873', 'PHL', '2023-12-30', '11:30:00', 'TPA', '2023-12-30', '14:15:00', 'One Way', 0, 150, 350, 500, 200, 'Domestic'),
+    ('F001', 'AA', 'eb321', 'JFK', '2023-01-01', '12:00:00', 'LAX', '2024-01-01', '15:00:00', 'One Way', 0, 150, 300, 500, 150, 'Domestic'),
+    ('F002', 'UA', 'hv890', 'LAX', '2023-02-01', '14:00:00', 'ICN', '2024-02-11', '22:00:00', 'Round Trip', 0, 1200, 1400, 1600, 200, 'International'),
+    ('F003', 'SW', 'pv734', 'ORD', '2023-03-01', '10:00:00', 'JFK', '2024-03-07', '13:00:00', 'Round Trip', 0, 250, 450, 700, 180, 'Domestic'),
+    ('F004', 'AA', 'lh904', 'JFK', '2023-04-01', '08:00:00', 'LAX', '2024-04-05', '11:00:00', 'Round Trip', 0, 180, 350, 550, 170, 'International'),
+    ('F005', 'UA', 'tv882', 'LAX', '2023-05-01', '16:00:00', 'ORD', '2024-05-01', '19:00:00', 'One Way', 0, 220, 420, 650, 190, 'Domestic'),
+    ('F006', 'SW', 'ml194', 'LHR', '2023-06-01', '11:00:00', 'JFK', '2024-06-01', '14:00:00', 'One Way', 0, 760, 1480, 1720, 200, 'International'),
+    ('F007', 'AA', 'ph647', 'JFK', '2023-07-01', '14:00:00', 'LAX', '2024-07-09', '17:00:00', 'Round Trip', 0, 400, 780, 1100, 180, 'Domestic'),
+    ('F008', 'UA', 'zc386', 'LAX', '2023-08-01', '18:00:00', 'FCO', '2024-08-01', '21:00:00', 'Round Trip', 0, 1240, 1450, 1680, 210, 'International');
+
 
 -- Sample data for waitingList table
 INSERT INTO waitingList (ID, airline, planeid, dep_date) VALUES ('user1', 'AA', 'PL001', '2023-02-01');
